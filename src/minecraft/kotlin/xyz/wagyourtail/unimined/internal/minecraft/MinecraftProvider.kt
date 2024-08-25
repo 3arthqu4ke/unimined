@@ -584,9 +584,11 @@ open class MinecraftProvider(project: Project, sourceSet: SourceSet) : Minecraft
         project.logger.lifecycle("[Unimined/Minecraft ${project.path}:${sourceSet.name}] Applying ${mcPatcher.name()}")
         (mcPatcher as AbstractMinecraftTransformer).apply()
 
-        // create run configs
-        applyRunConfigs()
-        (mcPatcher as AbstractMinecraftTransformer).applyExtraLaunches()
+        if (!runs.off) {
+            // create run configs
+            applyRunConfigs()
+            (mcPatcher as AbstractMinecraftTransformer).applyExtraLaunches()
+        }
 
         // finalize run configs
         runs.apply()

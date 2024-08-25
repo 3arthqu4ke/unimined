@@ -40,6 +40,10 @@ unimined.minecraft {
         devFallbackNamespace "official"
     }
 
+    runs {
+        off = true
+    }
+
     defaultRemapJar = false
 }
 
